@@ -1,10 +1,10 @@
-import React, { Suspense, VFC } from 'react';
+import React, { Suspense, FC } from 'react';
 import { OrbitControls, Stats } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
 import { Effect } from './Effect';
 import { ImagePlane } from './ImagePlane';
 
-export const TCanvas: VFC = () => {
+export const TCanvas: FC = () => {
 	return (
 		<Canvas
 			camera={{

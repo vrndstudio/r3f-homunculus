@@ -1,4 +1,4 @@
-import { useMemo, useRef, VFC } from 'react';
+import { useMemo, useRef, FC } from 'react';
 import { ShaderPass } from 'three-stdlib';
 import { extend, useFrame } from '@react-three/fiber';
 
@@ -10,7 +10,7 @@ type DistortionPassType = {
 	scale?: number
 }
 
-export const DistortionPass: VFC<DistortionPassType> = props => {
+export const DistortionPass: FC<DistortionPassType> = props => {
 	const { enabled = true, progress = 0, scale = 1 } = props
 
 	const distortionRef = useRef<ShaderPass>(null)
@@ -35,7 +35,7 @@ export const DistortionPass: VFC<DistortionPassType> = props => {
 	return (
 		<shaderPass
 			ref={distortionRef}
-			attachArray="passes"
+			attach="passes-1"
 			args={[shader]}
 			enabled={enabled}
 			uniforms-u_progress-value={progress}
